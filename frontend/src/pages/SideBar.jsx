@@ -63,51 +63,51 @@ const SideBar = () => {
           <li className="text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#FCC400] hover:text-black rounded-md mt-10">
             <FaHome
               className="text-3xl"
-              onClick={() => navigate("/dashboard")}
+              onClick={() => navigate("/main/dashboard")}
             />
-            <button
-              onClick={() => navigate("/dashboard")}
-              className={`text-base text-[#f4f6fb] font-medium ${
+            <span
+              onClick={() => navigate("/main/dashboard")}
+              className={`text-base text-[#f4f6fb] font-medium flex-1 ${
                 !open && "hidden"
               }`}
             >
               Dashboard
-            </button>
+            </span>
           </li>
           <li className="text-gray-200 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#FCC400] hover:text-black rounded-md mt-10 ">
             <FaRegCalendarAlt
               className="text-3xl"
-              onClick={() => navigate("/dashboard/rezervation")}
+              onClick={() => navigate("/main/rezervation")}
             />
             <span
               className={`text-base font-medium flex-1 ${!open && "hidden"}`}
-              onClick={() => navigate("/dashboard/rezervation")}
+              onClick={() => navigate("/main/rezervation")}
             >
-              Rezervation
+              Rezervations
             </span>
           </li>
           <li className="text-gray-200 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#FCC400] hover:text-black rounded-md mt-10 ">
             <LuBedDouble
               className="text-3xl"
-              onClick={() => navigate("/dashboard/rooms")}
+              onClick={() => navigate("/main/rooms")}
             />
             <span
               className={`text-base font-medium flex-1 ${!open && "hidden"}`}
-              onClick={() => navigate("/dashboard/rooms")}
+              onClick={() => navigate("/main/rooms")}
             >
-              Room
+              Rooms
             </span>
           </li>
           <li className="text-gray-200 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#FCC400] hover:text-black rounded-md mt-10 ">
             <CgArrangeFront
               className="text-3xl"
-              onClick={() => navigate("/dashboard/management")}
+              onClick={() => navigate("/main/management")}
             />
             <span
               className={`text-base font-medium flex-1 duration-200 ${
                 !open && "hidden"
               }`}
-              onClick={() => navigate("/dashboard/management")}
+              onClick={() => navigate("/main/management")}
             >
               Management
             </span>
@@ -115,11 +115,11 @@ const SideBar = () => {
           <li className="text-gray-200 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#FCC400] hover:text-black rounded-md mt-10 ">
             <MdOutlineEventAvailable
               className="text-3xl"
-              onClick={() => navigate("/dashboard/availability")}
+              onClick={() => navigate("/main/availability")}
             />
             <span
               className={`text-base font-medium flex-1 ${!open && "hidden"}`}
-              onClick={() => navigate("/dashboard/availability")}
+              onClick={() => navigate("/main/availability")}
             >
               Availability
             </span>
@@ -128,6 +128,7 @@ const SideBar = () => {
             <MdOutlineLogout className="text-3xl" />
             <span
               className={`text-base font-medium flex-1 ${!open && "hidden"}`}
+              onClick={() => navigate("/")}
             >
               Log out
             </span>

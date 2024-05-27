@@ -1,45 +1,47 @@
 import { useState } from "react";
-import Login from "./components/Login";
 import { Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
 import Register from "./components/Register";
-import Dashboard from "./pages/Dashboard";
+import Main from "./pages/Main";
 import RezInfo from "./pages/rezInfo";
 import Rooms from "./pages/Rooms";
 import Rezervation from "./pages/Rezervation";
 import Management from "./pages/Management";
 import Availability from "./pages/Availability";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const [selectedReservation, setSelectedReservation] = useState(null);
+
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Login />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route
-          path="/dashboard/*"
-          element={
-            <Dashboard setSelectedReservation={setSelectedReservation} />
-          }
-        >
-          <Route path="rooms" element={<Rooms />} />
-          <Route
-            path="rezervation"
-            element={
-              <Rezervation
-                onSelect={(reservation) => setSelectedReservation(reservation)}
-              />
-            }
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route
+        path="/main/*"
+        element={
+          <Main
+            selectedReservation={selectedReservation}
+            setSelectedReservation={setSelectedReservation}
           />
-          <Route path="management" element={<Management />} />
-          <Route path="availability" element={<Availability />} />
-        </Route>
+        }
+      >
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="rooms" element={<Rooms />} />
         <Route
-          path="/rezInfo"
+          path="rezervation"
+          element={
+            <Rezervation setSelectedReservation={setSelectedReservation} />
+          }
+        />
+        <Route path="management" element={<Management />} />
+        <Route path="availability" element={<Availability />} />
+        <Route
+          path="rezInfo"
           element={<RezInfo reservation={selectedReservation} />}
-        ></Route>
-      </Routes>
-    </>
+        />
+      </Route>
+    </Routes>
   );
 }
 

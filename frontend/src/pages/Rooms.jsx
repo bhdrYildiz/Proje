@@ -18,7 +18,7 @@ const Rooms = () => {
   };
 
   return (
-    <div className="flex flex-wrap gap-24 justify-center p-8 bg-[#C9D0E0]">
+    <div className="flex flex-wrap gap-24 justify-center p-4 bg-[#C9D0E0]">
       {rooms.map(room => (
         <RoomCard 
           key={room.id} 

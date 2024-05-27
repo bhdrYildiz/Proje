@@ -80,7 +80,7 @@ const Login = () => {
 
                 <button
                   type="submit"
-                  onClick={() => navigate("/dashboard")}
+                  onClick={() => navigate("/main/dashboard")}
                   disabled={isSubmitting}
                   className="w-full text-[#f5f5f5] my-2 font-semibold bg-[#FCC400] rounded-md p-4 text-center flex items-center justify-center cursor-pointer shadow-sm hover:bg-[#F4F6FB] hover:text-[#363740]"
                 >
