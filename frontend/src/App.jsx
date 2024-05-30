@@ -9,6 +9,7 @@ import Rezervation from "./pages/Rezervation";
 import Management from "./pages/Management";
 import Availability from "./pages/Availability";
 import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
 
 function App() {
   const [selectedReservation, setSelectedReservation] = useState(null);
@@ -36,6 +37,7 @@ function App() {
         />
         <Route path="management" element={<Management />} />
         <Route path="availability" element={<Availability />} />
+        <Route path="profile" element={<Profile />} />
         <Route
           path="rezInfo"
           element={<RezInfo reservation={selectedReservation} />}

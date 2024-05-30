@@ -5,6 +5,7 @@ import { MdOutlineEventAvailable, MdOutlineLogout } from "react-icons/md";
 import { CgArrangeFront } from "react-icons/cg";
 import { BsArrowLeftShort, BsSearch } from "react-icons/bs";
 import { AiFillEnvironment } from "react-icons/ai";
+import { RxAvatar } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
 
 const menuItems = [
@@ -13,6 +14,7 @@ const menuItems = [
   { name: "Rooms", icon: <LuBedDouble className="text-3xl" />, path: "/main/rooms" },
   { name: "Management", icon: <CgArrangeFront className="text-3xl" />, path: "/main/management" },
   { name: "Availability", icon: <MdOutlineEventAvailable className="text-3xl" />, path: "/main/availability" },
+  { name: "Profile", icon: <RxAvatar className="text-3xl" />, path: "/main/profile" },
   { name: "Log out", icon: <MdOutlineLogout className="text-3xl" />, path: "/" },
 ];
 
