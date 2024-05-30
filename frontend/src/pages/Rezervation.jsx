@@ -51,7 +51,7 @@ const Rezervation = () => {
       reservation.name.toLowerCase().includes(filterName.toLowerCase())
     );
     setFilteredReservations(filtered);
-    setCurrentPage(1); // Reset to first page after filtering
+    setCurrentPage(1);
   }, [filterName]);
 
   const sortByPrice = () => {

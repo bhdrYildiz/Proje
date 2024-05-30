@@ -15,13 +15,14 @@ const Register = () => {
           </h2>
         </div>
         <Formik
-          initialValues={{ fullname: "", email: "", password: "", country: "" }}
+          initialValues={{ fullname: "", email: "", password: "", city: "" }}
           validationSchema={Yup.object().shape({
             fullname: Yup.string().required("Fullname is required"),
             email: Yup.string()
               .email("Invalid email address")
               .required("Email is required"),
             password: Yup.string().required("Password is required"),
+            city: Yup.string().required("City is required"),
           })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
@@ -79,13 +80,13 @@ const Register = () => {
                 <div className="mt-2">
                   <Field
                     type="text"
-                    name="country"
+                    name="city"
                     placeholder="City :"
                     className="w-full text-[#F4F6FB] py-2 my-2 bg-transparent border-b border-[#FCC400] outline-none focus:outline-none"
                   />
                 </div>
                 <ErrorMessage
-                  name="country"
+                  name="city"
                   component="div"
                   className="p-4 mb-4 text-sm text-[#FCC400] font-semibold rounded-lg bg-[#C9D0E0] dark:bg-[#C9D0E0] dark:text-red-400"
                   role="alert"

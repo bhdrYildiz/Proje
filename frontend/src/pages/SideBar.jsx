@@ -1,18 +1,29 @@
-import React from "react";
-import { FaHome } from "react-icons/fa";
-import { FaRegCalendarAlt } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaHome, FaRegCalendarAlt } from "react-icons/fa";
 import { LuBedDouble } from "react-icons/lu";
-import { MdOutlineEventAvailable } from "react-icons/md";
-import { MdOutlineLogout } from "react-icons/md";
+import { MdOutlineEventAvailable, MdOutlineLogout } from "react-icons/md";
 import { CgArrangeFront } from "react-icons/cg";
-import { useState } from "react";
 import { BsArrowLeftShort, BsSearch } from "react-icons/bs";
 import { AiFillEnvironment } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
+const menuItems = [
+  { name: "Dashboard", icon: <FaHome className="text-3xl" />, path: "/main/dashboard" },
+  { name: "Rezervations", icon: <FaRegCalendarAlt className="text-3xl" />, path: "/main/rezervation" },
+  { name: "Rooms", icon: <LuBedDouble className="text-3xl" />, path: "/main/rooms" },
+  { name: "Management", icon: <CgArrangeFront className="text-3xl" />, path: "/main/management" },
+  { name: "Availability", icon: <MdOutlineEventAvailable className="text-3xl" />, path: "/main/availability" },
+  { name: "Log out", icon: <MdOutlineLogout className="text-3xl" />, path: "/" },
+];
+
 const SideBar = () => {
   const [open, setOpen] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+
+  const filteredItems = menuItems.filter(item =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="flex">
@@ -47,92 +58,36 @@ const SideBar = () => {
           }`}
         >
           <BsSearch
-            className={`text-black text-lg block float-left cursor-pointer ${
+            className={`text-[#363740] text-lg block float-left cursor-pointer ${
               open && "mr-2"
             }`}
           />
           <input
             type="search"
             placeholder="Search"
-            className={`text-base bg-transparent w-full text-black focus:outline-none ${
+            className={`text-base bg-transparent w-full text-[#363740] focus:outline-none ${
               !open && "hidden"
             }`}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
         <ul className="pt-2">
-          <li className="text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#FCC400] hover:text-black rounded-md mt-10">
-            <FaHome
-              className="text-3xl"
-              onClick={() => navigate("/main/dashboard")}
-            />
-            <span
-              onClick={() => navigate("/main/dashboard")}
-              className={`text-base text-[#f4f6fb] font-medium flex-1 ${
-                !open && "hidden"
-              }`}
+          {filteredItems.map((item, index) => (
+            <li
+              key={index}
+              className="text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#FCC400] hover:text-[#363740] rounded-md mt-10"
+              onClick={() => navigate(item.path)}
             >
-              Dashboard
-            </span>
-          </li>
-          <li className="text-gray-200 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#FCC400] hover:text-black rounded-md mt-10 ">
-            <FaRegCalendarAlt
-              className="text-3xl"
-              onClick={() => navigate("/main/rezervation")}
-            />
-            <span
-              className={`text-base font-medium flex-1 ${!open && "hidden"}`}
-              onClick={() => navigate("/main/rezervation")}
-            >
-              Rezervations
-            </span>
-          </li>
-          <li className="text-gray-200 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#FCC400] hover:text-black rounded-md mt-10 ">
-            <LuBedDouble
-              className="text-3xl"
-              onClick={() => navigate("/main/rooms")}
-            />
-            <span
-              className={`text-base font-medium flex-1 ${!open && "hidden"}`}
-              onClick={() => navigate("/main/rooms")}
-            >
-              Rooms
-            </span>
-          </li>
-          <li className="text-gray-200 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#FCC400] hover:text-black rounded-md mt-10 ">
-            <CgArrangeFront
-              className="text-3xl"
-              onClick={() => navigate("/main/management")}
-            />
-            <span
-              className={`text-base font-medium flex-1 duration-200 ${
-                !open && "hidden"
-              }`}
-              onClick={() => navigate("/main/management")}
-            >
-              Management
-            </span>
-          </li>
-          <li className="text-gray-200 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#FCC400] hover:text-black rounded-md mt-10 ">
-            <MdOutlineEventAvailable
-              className="text-3xl"
-              onClick={() => navigate("/main/availability")}
-            />
-            <span
-              className={`text-base font-medium flex-1 ${!open && "hidden"}`}
-              onClick={() => navigate("/main/availability")}
-            >
-              Availability
-            </span>
-          </li>
-          <li className="text-gray-200 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#FCC400] hover:text-black rounded-md mt-10 ">
-            <MdOutlineLogout className="text-3xl" />
-            <span
-              className={`text-base font-medium flex-1 ${!open && "hidden"}`}
-              onClick={() => navigate("/")}
-            >
-              Log out
-            </span>
-          </li>
+              {item.icon}
+              <span
+                className={`text-base text-[#f4f6fb] font-medium flex-1 ${
+                  !open && "hidden"
+                }`}
+              >
+                {item.name}
+              </span>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

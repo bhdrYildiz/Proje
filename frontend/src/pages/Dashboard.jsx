@@ -67,7 +67,7 @@ const Dashboard = () => {
             {currentReservations.map((reservation, index) => (
               <tr 
                 key={index} 
-                className="bg-white border-b hover:bg-[#f4f6fb] cursor-pointer" 
+                className="bg-white border-b hover:bg-[#f4f6fb] cursor-pointer hover:font-semibold" 
                 onClick={() => handleSelect(reservation)}
               >
                 <td className="px-6 py-4">{reservation.name}</td>
