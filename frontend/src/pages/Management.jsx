@@ -2,7 +2,7 @@ import React from "react";
 
 const Management = () => {
   return (
-    <div className="flex flex-row w-full h-full p-8 justify-around bg-[#E0E6EF]">
+    <div className="flex flex-row w-full h-full p-8 justify-around">
       <div className="bg-[#363740] shadow-md rounded-lg p-8 flex flex-col mb-6 w-2/3">
         <div className="flex justify-between items-center bg-[#FCC400] p-5 mb-8 rounded-md">
           <div>

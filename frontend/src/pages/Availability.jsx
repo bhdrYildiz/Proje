@@ -22,12 +22,12 @@ const Availability = () => {
 
   return (
     <div className="flex justify-center items-center h-full w-full bg-[#C9D0E0]">
-      <div className="bg-[#f4f6fb] p-8 shadow-md rounded-lg w-full max-w-7xl h-3/4 text-[#363740]">
+      <div className="bg-[#f4f6fb] p-8 shadow-md rounded-lg w-full max-w-7xl text-[#363740]">
         <h2 className="text-2xl font-semibold mb-4">
           Müsaitlik Tablo Görünümü
         </h2>
-        <div className="flex mb-4 space-x-4">
-          <div>
+        <div className="flex mb-4 space-x-4 sm:flex-row sm:space-x-4">
+          <div className="flex flex-col mb-4 sm:mb-0">
             <label className="block text-lg font-medium mb-1">
               Baş. Tarih:
             </label>
@@ -38,7 +38,7 @@ const Availability = () => {
               onChange={(e) => setStartDate(e.target.value)}
             />
           </div>
-          <div>
+          <div className="flex flex-col mb-4 sm:mb-0">
             <label className="block text-lg font-medium mb-1">
               Bitiş Tarih:
             </label>
@@ -58,7 +58,7 @@ const Availability = () => {
             </button>
           </div>
         </div>
-        <div className="overflow-x-auto h-3/4">
+        <div className="overflow-x-auto h-3/4 sm:h-full overflow-y-auto">
           <table className="table-auto w-full border-collapse min-w-max h-5/6">
             <thead>
               <tr>
