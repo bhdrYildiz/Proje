@@ -15,9 +15,14 @@ const Availability = () => {
         dateArray.push(new Date(start));
         start.setDate(start.getDate() + 1);
       }
-
       setDates(dateArray);
     }
+  };
+
+  const getRandomValueAndColor = () => {
+    const isRed = Math.random() < 0.3; // %50 şansla kırmızı veya yeşil
+    const value = isRed ? 0 : Math.floor(Math.random() * 3) + 1; // kırmızı için 0, yeşil için 1, 2 veya 3
+    return { isRed, value };
   };
 
   return (
@@ -83,17 +88,22 @@ const Availability = () => {
                 "Balayı Odası",
               ].map((roomType, index) => (
                 <tr key={index}>
-                  <td className="border-y-2 border-[#C9D0E0] font-semibold p-2 ">{roomType}</td>
-                  {dates.map((date, dateIndex) => (
-                    <td
-                      key={dateIndex}
-                      className={`border border-[#363740] p-2 text-center ${
-                        dateIndex % 2 === 0 ? "bg-green-200" : "bg-red-200"
-                      }`}
-                    >
-                      1 {/* Örnek veri */}
-                    </td>
-                  ))}
+                  <td className="border-y-2 border-[#C9D0E0] font-semibold p-2">
+                    {roomType}
+                  </td>
+                  {dates.map((date, dateIndex) => {
+                    const { isRed, value } = getRandomValueAndColor();
+                    return (
+                      <td
+                        key={dateIndex}
+                        className={`border border-[#363740] p-2 text-center ${
+                          isRed ? "bg-red-200" : "bg-green-200"
+                        }`}
+                      >
+                        {value}
+                      </td>
+                    );
+                  })}
                 </tr>
               ))}
             </tbody>

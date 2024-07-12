@@ -9,9 +9,11 @@ const Profile = () => {
           <RxAvatar className="text-3xl w-52 h-52 rounded-full text-[#363740]" />
         </div>
         <div className="mt-10 flex flex-col gap-8 text-[#363740] mb-2">
-          <span className="text-l font-semibold ">Name : Bahadır Yıldız</span>
-          <span className="text-l font-semibold ">Email : bahadiryildiz137@gmail.com</span>
-          <span className="text-l font-semibold ">Password : 9045029304</span>
+          <span className="text-l font-semibold ">
+            Name : Kaan Furkan Çakıroğlu
+          </span>
+          <span className="text-l font-semibold ">Email : kaan@gmail.com</span>
+          <span className="text-l font-semibold ">Password : Mavikaan07</span>
           <span className="text-l font-semibold">City : Istanbul</span>
         </div>
       </div>

@@ -29,7 +29,6 @@ const Register = () => {
               alert(JSON.stringify(values, null, 2));
               setSubmitting(false);
             }, 400);
-            console.log(values);
           }}
         >
           {({ isSubmitting }) => (

@@ -14,11 +14,11 @@ const Navbar = () => {
 
       <div className="flex w-96 h-20 mt-2 justify-between bg-[#FCC400] p-4 rounded-s-3xl">
         <button className="flex items-center justify-center">
-          <FaRegUserCircle className="w-12 h-12 text-[#363740] ml-6"/>
-        </button>   
+          <FaRegUserCircle className="w-12 h-12 text-[#363740] ml-6" />
+        </button>
         <div className="flex flex-col items-start justify-end mr-12">
-            <h1 className="">Bahadır Yıldız</h1>
-            <h3 className="">bahadiryildiz137@gmail.com</h3>
+          <h1 className="">Kaan Furkan Çakıroğlu</h1>
+          <h3 className="">kaan@gmail.com</h3>
         </div>
       </div>
     </nav>

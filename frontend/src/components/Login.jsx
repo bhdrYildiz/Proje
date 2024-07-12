@@ -4,9 +4,17 @@ import GOOGLE from "../assets/google.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { SignIn } from "../redux/loginSlice";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const values = {
+    email: "kaan@gmails.com",
+    password: "Mavikaan07",
+  };
+  dispatch(SignIn(values));
 
   return (
     <div className="w-full h-screen flex items-start">
@@ -39,12 +47,15 @@ const Login = () => {
                 .required("Email is required"),
               password: Yup.string().required("Password is required"),
             })}
-            onSubmit={(values, { setSubmitting }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
+            onSubmit={async (values, { setSubmitting }) => {
+              setTimeout(async () => {
+                const asdas = await dispatch(SignIn(values));
+                if (asdas.payload.success === "True") {
+                  navigate("/main/dashboard");
+                }
+                alert(JSON.stringify(asdas.payload.message, null, 2));
                 setSubmitting(false);
               }, 400);
-              console.log(values);
             }}
           >
             {({ isSubmitting }) => (
@@ -80,7 +91,7 @@ const Login = () => {
 
                 <button
                   type="submit"
-                  onClick={() => navigate("/main/dashboard")}
+                  onClick={() => {}}
                   disabled={isSubmitting}
                   className="w-full text-[#f5f5f5] my-2 font-semibold bg-[#FCC400] rounded-md p-4 text-center flex items-center justify-center cursor-pointer shadow-sm hover:bg-[#F4F6FB] hover:text-[#363740]"
                 >
